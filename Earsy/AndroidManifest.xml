@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/CustomThemeOrange" >
         <activity
-            android:name="com.rockwood.earsy.MainActivity"
+            android:name="com.rockwood.earsy.view.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.rockwood.earsy.test.PitchTestActivity"
+            android:name="com.rockwood.earsy.view.PitchTestActivity"
             android:label="@string/title_activity_pitch_test" >
             android:parentActivityName="com.rockwood.earsy.MainActivity" >
         <meta-data
