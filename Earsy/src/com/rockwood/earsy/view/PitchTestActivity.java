@@ -6,12 +6,15 @@ import com.rockwood.earsy.model.PitchTest;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.GridView;
 import android.widget.TextView;
 
 
 public class PitchTestActivity extends Activity {
     
     PitchTest test;
+    static final String[] NOTES = new String[] { "C", "C#/Db","D", "D#/Eb","E","F","F#/Gb","G","G#/Ab","A","A#/Bb","B" };
+    GridView gridView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,8 @@ public class PitchTestActivity extends Activity {
 		// Get our TextView object.
 		TextView vw = (TextView)findViewById(R.id.textView1);
 		vw.setText(test.getQuestionNumberInfo());
+		gridView = (GridView) findViewById(R.id.gridView_keyButtons);
+		gridView.setAdapter(new KeyButtonAdapter(this, NOTES));
 		
 			
 	}

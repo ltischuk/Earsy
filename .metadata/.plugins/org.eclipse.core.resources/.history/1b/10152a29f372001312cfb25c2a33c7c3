@@ -1,0 +1,48 @@
+package com.rockwood.earsy.test;
+
+import com.rockwood.earsy.MainActivity;
+import com.rockwood.earsy.R;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
+
+public class PitchTestActivity extends Activity {
+    
+    PitchTest test;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);		
+		test = new PitchTest();
+		setContentView(R.layout.activity_pitch_test);
+		// Get our TextView object.
+		TextView vw = (TextView)findViewById(R.id.textView1);
+		vw.setText(test.getQuestionNumberInfo());
+		
+		GridView gridview = (GridView) findViewById(R.id.gridview);
+		    gridview.setAdapter(new ImageAdapter(this));
+
+		    gridview.setOnItemClickListener(new OnItemClickListener() {
+		        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+		            Toast.makeText(PitchTestActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+		        }
+		    });	
+		
+		
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.pitch_test, menu);
+		return true;
+	}
+
+}

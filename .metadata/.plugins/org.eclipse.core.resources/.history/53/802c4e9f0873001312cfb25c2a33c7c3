@@ -1,0 +1,103 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/act_pitch_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PitchTestActivity" >
+ 
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"/> 
+        	
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="@string/pitch_test_instruc" />
+
+        <ImageButton
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_playbutton"
+            android:contentDescription="@string/play_btnContent" />
+        
+        <TableLayout
+   			 android:id="@+id/table"
+   			 android:layout_width="wrap_content" 
+    		 android:layout_height="wrap_content"
+    		 android:layout_below="@+id/button1">
+    		 <TableRow>
+				<Button android:id="@+id/keybutton_c"
+					android:drawableTop="@drawable/ic_whitekeybuttoncf"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:background="@android:color/transparent"
+					android:text="@string/keybutton_c_txt"/>
+				<ImageButton android:id="@+id/keybutton_csdb"
+					android:background="@drawable/ic_blackkeybutton"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:contentDescription="@string/keybutton_csdb_txt"/>
+				<ImageButton android:id="@+id/keybutton_d"
+					android:background="@drawable/ic_whitekeybuttondga"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:contentDescription="@string/keybutton_d_txt"/>
+				<ImageButton android:id="@+id/keybutton_dseb"
+					android:background="@drawable/ic_blackkeybutton"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:contentDescription="@string/keybutton_dseb_txt"/>
+				<ImageButton android:id="@+id/keybutton_e"
+					android:background="@drawable/ic_whitekeybuttoncf"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:contentDescription="@string/keybutton_e_txt"/>
+				<ImageButton android:id="@+id/keybutton_f"
+					android:background="@drawable/ic_whitekeybuttoncf"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:contentDescription="@string/keybutton_f_txt"/>
+			</TableRow>
+			<TableRow>
+			    <ImageButton android:id="@+id/keybutton_fsgb"
+					android:background="@drawable/ic_blackkeybutton"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:contentDescription="@string/keybutton_fsgb_txt"/>
+				<ImageButton android:id="@+id/keybutton_g"
+					android:background="@drawable/ic_whitekeybuttondga"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:contentDescription="@string/keybutton_g_txt"/>
+				<ImageButton android:id="@+id/keybutton_gsab"
+					android:background="@drawable/ic_blackkeybutton"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:contentDescription="@string/keybutton_gsab_txt"/>
+				<ImageButton android:id="@+id/keybutton_a"
+					android:background="@drawable/ic_whitekeybuttondga"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:contentDescription="@string/keybutton_a_txt"/>
+				<ImageButton android:id="@+id/keybutton_asbb"
+					android:background="@drawable/ic_blackkeybutton"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:contentDescription="@string/keybutton_asbb_txt"/>
+				<ImageButton android:id="@+id/keybutton_b"
+					android:background="@drawable/ic_whitekeybuttoneb"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:contentDescription="@string/keybutton_b_txt"/>
+			</TableRow>
+		</TableLayout>
+        	
+
+</RelativeLayout>

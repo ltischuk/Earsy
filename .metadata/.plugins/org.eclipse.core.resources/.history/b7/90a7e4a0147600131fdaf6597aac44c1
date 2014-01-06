@@ -1,0 +1,143 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/act_pitch_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PitchTestActivity" >
+ 
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"/> 
+        	
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:text="@string/pitch_test_instruc" />
+
+        <ImageButton
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_playbutton"
+            android:contentDescription="@string/play_btnContent" />
+        
+        <GridView 
+	    	android:id="@+id/gridViewKeyButtons"
+	    	android:numColumns="auto_fit"
+	    	android:gravity="center"
+	    	android:columnWidth="wrap_content"
+	    	android:stretchMode="columnWidth"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="fill_parent" >            	 
+		</GridView>
+        
+        <LinearLayout
+   			android:layout_gravity="center" 
+    		android:orientation="horizontal"
+    		android:layout_width="fill_parent"
+    		android:layout_below="@+id/button1"
+    		android:layout_height="wrap_content">
+           		   		 
+				<Button
+				    android:id="@+id/keybutton_c"
+				    style="?android:attr/buttonBarButtonStyle"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="1"
+				    android:text="@string/keybutton_c_txt"/>
+
+				<Button
+				    android:id="@+id/keybutton_csdb"
+				    style="?android:attr/buttonBarButtonStyle"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="1"
+				    android:text="@string/keybutton_csdb_txt" />
+
+				<Button
+				    android:id="@+id/keybutton_d"
+				    style="?android:attr/buttonBarButtonStyle"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="1"
+				    android:text="@string/keybutton_d_txt" />
+
+				<Button
+				    android:id="@+id/keybutton_dseb"
+				    style="?android:attr/buttonBarButtonStyle"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="1"
+				    android:text="@string/keybutton_dseb_txt" />
+				
+				<Button
+				    android:id="@+id/keybutton_e"
+				    style="?android:attr/buttonBarButtonStyle"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="1"
+				    android:text="@string/keybutton_e_txt"/>
+
+				<Button
+				    android:id="@+id/keybutton_f"
+				    style="?android:attr/buttonBarButtonStyle"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"				    
+				    android:layout_weight="1"
+				    android:text="@string/keybutton_f_txt"/>
+				
+				<Button
+				    android:id="@+id/keybutton_fsgb"
+				    style="?android:attr/buttonBarButtonStyle"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="1"
+				    android:text="@string/keybutton_fsgb_txt" />
+				
+				<Button
+				    android:id="@+id/keybutton_g"
+				    style="?android:attr/buttonBarButtonStyle"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="1"
+				    android:text="@string/keybutton_g_txt" />
+				
+				<Button
+				    android:id="@+id/keybutton_gsab"
+				    style="?android:attr/buttonBarButtonStyle"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="1"
+				    android:text="@string/keybutton_gsab_txt" />
+				
+				<Button
+				    android:id="@+id/keybutton_a"
+				    style="?android:attr/buttonBarButtonStyle"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="1"
+				    android:text="@string/keybutton_a_txt" />
+				
+				<Button
+				    android:id="@+id/keybutton_abbb"
+				    style="?android:attr/buttonBarButtonStyle"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="1"
+				    android:text="@string/keybutton_asbb_txt" />
+				
+				<Button
+				    android:id="@+id/keybutton_b"
+				    style="?android:attr/buttonBarButtonStyle"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="1"
+				    android:text="@string/keybutton_b_txt"/>
+			</LinearLayout>
+</RelativeLayout>

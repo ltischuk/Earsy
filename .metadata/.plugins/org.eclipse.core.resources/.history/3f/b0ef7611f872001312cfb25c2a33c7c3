@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Earsy</string>
+    <string name="action_settings">Settings</string>
+    <string name="main_btnStartTraining">Start Perfect Pitch Test</string>
+    <string name="title_activity_pitch_test">PitchTestActivity</string>
+    <string name="pitch_test_instruc">Press to Play Audio</string>
+    <string name="play_btnContent">plays audio for user</string>
+    <string name="title_section3">Section 3</string>
+    <string name="keybutton_c_txt">C</string>
+    <string name="keybutton_csdb_txt">C# Db</string>
+    <string name="keybutton_d_txt">D</string>
+    <string name="keybutton_e_txt">E</string>
+    <string name="keybutton_f_txt">F</string>
+    <string name="keybutton_g_txt">G</string>
+    <string name="keybutton_a_txt">A</string>
+    <string name="keybutton_b_txt">B</string>
+    
+
+</resources>

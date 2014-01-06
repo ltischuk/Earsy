@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.view.View"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="android.app.Application"/>
+<fullyQualifiedTypeName name="android.media.MediaPlayer"/>
+<fullyQualifiedTypeName name="java.net.URI"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="com.rockwood.earsy.EarsyApplication"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="android.widget.EditText"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="com.rockwood.earsy.R"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="android.widget.GridView"/>
+<fullyQualifiedTypeName name="android.graphics.drawable.Drawable"/>
+</qualifiedTypeNameHistroy>
