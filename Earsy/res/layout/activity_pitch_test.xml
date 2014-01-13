@@ -27,15 +27,15 @@
             android:background="@drawable/ic_playbutton"
             android:contentDescription="@string/play_btnContent" />
         
-        <GridView 
-	    	android:id="@+id/gridView_keyButtons"
-	    	android:numColumns="auto_fit"
-	    	android:layout_below="@+id/button1"
-	    	android:gravity="center"
-	    	android:stretchMode="columnWidth"
-	    	android:layout_width="fill_parent"
-	    	android:layout_height="fill_parent" >            	 
-		</GridView>
-        
+        <view
+            class="com.rockwood.earsy.view.PianoView"
+            android:id="@+id/PianoView"
+            android:layout_below="@+id/button1"
+            android:layout_marginLeft="10dp"
+ 			android:layout_marginRight="10dp"
+ 			android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
    
 </RelativeLayout>
