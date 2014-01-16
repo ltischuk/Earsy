@@ -1,6 +1,8 @@
 package com.rockwood.earsy.view.widgets;
 
 
+import com.rockwood.earsy.view.graphics.WhiteKeyPaint;
+
 import android.graphics.Canvas;
 import android.graphics.Rect;
 
