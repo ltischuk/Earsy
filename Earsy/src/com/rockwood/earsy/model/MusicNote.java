@@ -1,28 +1,32 @@
 package com.rockwood.earsy.model;
 
 public enum MusicNote {
-	A(),
-	B(),
+	
 	C(),
+	DFLAT("C#Db",C,MusicAccidental.Sharp),
 	D(),
+	EFLAT("D#Eb",D,MusicAccidental.Sharp),
 	E(),
 	F(),
+	GFLAT("F#Gb",F,MusicAccidental.Sharp),	
 	G(),
-	AFLAT(G,MusicAccidental.Sharp),
-	BFLAT(A,MusicAccidental.Sharp),
-	DFLAT(C,MusicAccidental.Sharp),
-	EFLAT(D,MusicAccidental.Sharp),
-	GFLAT(F,MusicAccidental.Sharp);
+	AFLAT("G#Ab",G,MusicAccidental.Sharp),
+	A(),	
+	BFLAT("A#Bb",A,MusicAccidental.Sharp),
+	B();
+	
+	
 	
 	private MusicNote altNote;
 	private MusicAccidental accidental;
+	private String display;
 	
 	MusicNote()
 	{
-	    
+	    this.display = name();
 	}
 
-	MusicNote(MusicNote altNote, MusicAccidental accidental)
+	MusicNote(String display, MusicNote altNote, MusicAccidental accidental)
 	{
 	    this.altNote = altNote;
 	    this.accidental = accidental;
@@ -38,10 +42,9 @@ public enum MusicNote {
 	    return accidental;
 	}
 	
-	
-	public int getOrdinal()
+	public String getDisplay()
 	{
-	    return this.ordinal();
+	    return display;
 	}
 	
 }

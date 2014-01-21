@@ -1,23 +1,32 @@
 package com.rockwood.earsy.view;
 
+import com.rockwood.earsy.model.MusicNote;
+import com.rockwood.earsy.utils.Constants;
 import com.rockwood.earsy.view.graphics.BlackKeyPaint;
+import com.rockwood.earsy.view.graphics.BlackKeyTextPaint;
 import com.rockwood.earsy.view.graphics.WhiteKeyPaint;
+import com.rockwood.earsy.view.graphics.WhiteKeyTextPaint;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 
 public class PianoView extends View {
     WhiteKeyPaint whitePaint;
     BlackKeyPaint blackPaint;
+    WhiteKeyTextPaint wkTextPaint;
+    BlackKeyTextPaint bkTextPaint;
     int numOfWhiteKeys = 7;
     int numOfBlackKeys = 5;
-    Rect[] whiteKeys;
-    Rect[] blackKeys;
+    int blackKeySpacerVal = 2;
+    PianoKey[] whiteKeys;
+    PianoKey[] blackKeys;
+    
+    double viewDimensionScale = .75;
     double blackWidthScale = 0.25;
     double blackHeightScale = 0.5;
+    
 
     public PianoView(Context context, AttributeSet attrs) {
 	super(context, attrs);
@@ -27,11 +36,12 @@ public class PianoView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
 	super.onDraw(canvas);
-	for (Rect rect : whiteKeys) {
-	    canvas.drawRect(rect, whitePaint);
+	for (PianoKey key : whiteKeys) {
+	    canvas.drawRect(key.getRect(), whitePaint);
+	    canvas.drawText(key.getNote().getDisplay(), key.getXText(), key.getYText(), wkTextPaint);
 	}
-	for (Rect rect : blackKeys) {
-	    canvas.drawRect(rect, blackPaint);
+	for (PianoKey key : blackKeys) {
+	    canvas.drawRect(key.getRect(), blackPaint);
 	}
 
     }
@@ -40,18 +50,24 @@ public class PianoView extends View {
      * Initialize the rectangles and paint objects
      */
     private void init() {
+	
+	MusicNote[] noteValues = MusicNote.values();
+	wkTextPaint = new WhiteKeyTextPaint();
 	whitePaint = new WhiteKeyPaint();
 	blackPaint = new BlackKeyPaint();
-	whiteKeys = new Rect[numOfWhiteKeys];
-	blackKeys = new Rect[numOfBlackKeys];
 	
+	whiteKeys = new PianoKey[numOfWhiteKeys];
+	blackKeys = new PianoKey[numOfBlackKeys];
+	
+	String tempNoteName;
 	for (int i=0 ;i<numOfWhiteKeys; i++) {
-	    whiteKeys[i] = new Rect(0, 0, 0, 0);
+	    tempNoteName = noteValues[i].name();
+	    whiteKeys[i] = new PianoKey(tempNoteName.contains(Constants.FLAT) ? noteValues[i+1]: noteValues[i]);
 	}
 	
 	for(int i = 0; i<numOfBlackKeys;i++)
 	{
-	    blackKeys[i] = new Rect(0, 0, 0, 0);
+	    blackKeys[i] = new PianoKey(noteValues[i]);
 	}
 	
     }
@@ -63,9 +79,9 @@ public class PianoView extends View {
         int parentWidth = MeasureSpec.getSize(widthMeasureSpec);
         int parentHeight = MeasureSpec.getSize(heightMeasureSpec);
         this.setMeasuredDimension(
-                parentWidth, parentHeight/2);
+                parentWidth, (int) (parentHeight * viewDimensionScale));
         
-        scaleKeys(parentWidth/7, parentHeight/2);
+        scalePiano(parentWidth/numOfWhiteKeys, (int) (parentHeight * viewDimensionScale));
         invalidate();
     }
     
@@ -74,18 +90,18 @@ public class PianoView extends View {
      * @param xWhiteRight coordinate of right x of first white key
      * @param yWhiteBottom coordinate of bottom y of first white key
      */
-    private void scaleKeys(int xWhiteRight, int yWhiteBottom)
+    private void scalePiano(int xWhiteRight, int yWhiteBottom)
     {
 	//handle white keys first
 	int top = 0;
 	int left = 0;	
 	int right= xWhiteRight;
 	int bottom = yWhiteBottom;
-	int blackKeyWidth = (int) ((xWhiteRight*blackWidthScale)*2);
+	int blackKeyWidth = (int) ((xWhiteRight*blackWidthScale)*blackKeySpacerVal);
 	
-	for(Rect rect: whiteKeys)
+	for(PianoKey key: whiteKeys)
 	{	    
-	    rect.set(left, top, right, bottom);
+	    key.resizeKey(left, top, right, bottom);
 	    left+= xWhiteRight;
 	    right += xWhiteRight;
 	}	
@@ -97,14 +113,14 @@ public class PianoView extends View {
 	for(int i=0;i<blackKeys.length;i++)
 	{	  
 	    //on second key make a space for the fact that no black key is between F and G
-	    if(i==2)
+	    if(i==blackKeySpacerVal)
 	    {
-		left+= blackKeyWidth*2;
-		right += blackKeyWidth*2;
+		left+= blackKeyWidth*blackKeySpacerVal;
+		right += blackKeyWidth*blackKeySpacerVal;
 	    }
-	    blackKeys[i].set(left, top, right, bottom);
-	    left+= blackKeyWidth*2;
-	    right += blackKeyWidth*2;
+	    blackKeys[i].resizeKey(left, top, right, bottom);
+	    left+= blackKeyWidth*blackKeySpacerVal;
+	    right += blackKeyWidth*blackKeySpacerVal;
 	    
 	}
     } 
