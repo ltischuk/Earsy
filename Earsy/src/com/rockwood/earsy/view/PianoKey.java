@@ -8,8 +8,11 @@ public class PianoKey {
 
     private Rect rect;
     private int xText;
-    private int yText; 
+    private int yText;
+    private static int xScale = 2;
+    private static int yScale = 4;
     private MusicNote note;
+    
     
     
     public PianoKey(MusicNote note)
@@ -20,8 +23,8 @@ public class PianoKey {
     
     public void resizeKey(int left, int top, int right, int bottom) {
 	rect.set(left,top,right,bottom);
-	xText = (right - left) /2;
-	yText = bottom -((bottom - top)/4);	
+	xText = right - ((right - left) /xScale);
+	yText = bottom -((bottom - top)/yScale);	
     }
     
     public MusicNote getNote()

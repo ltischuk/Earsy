@@ -1,7 +1,7 @@
 package com.rockwood.earsy.view;
 
 import com.rockwood.earsy.model.MusicNote;
-import com.rockwood.earsy.utils.Constants;
+import com.rockwood.earsy.utils.Utils;
 import com.rockwood.earsy.view.graphics.BlackKeyPaint;
 import com.rockwood.earsy.view.graphics.BlackKeyTextPaint;
 import com.rockwood.earsy.view.graphics.WhiteKeyPaint;
@@ -28,6 +28,11 @@ public class PianoView extends View {
     double blackHeightScale = 0.5;
     
 
+    /**
+     * Initialize PianoView
+     * @param context
+     * @param attrs
+     */
     public PianoView(Context context, AttributeSet attrs) {
 	super(context, attrs);
 	init();
@@ -42,6 +47,8 @@ public class PianoView extends View {
 	}
 	for (PianoKey key : blackKeys) {
 	    canvas.drawRect(key.getRect(), blackPaint);
+	    canvas.drawText(key.getNote().getDisplay().substring(0, 2), key.getXText(), key.getYText(), bkTextPaint);
+	    canvas.drawText(key.getNote().getDisplay().substring(2, 4), key.getXText(), key.getYText() + bkTextPaint.getTextSize(), bkTextPaint);
 	}
 
     }
@@ -53,21 +60,20 @@ public class PianoView extends View {
 	
 	MusicNote[] noteValues = MusicNote.values();
 	wkTextPaint = new WhiteKeyTextPaint();
+	bkTextPaint = new BlackKeyTextPaint();
 	whitePaint = new WhiteKeyPaint();
 	blackPaint = new BlackKeyPaint();
 	
 	whiteKeys = new PianoKey[numOfWhiteKeys];
 	blackKeys = new PianoKey[numOfBlackKeys];
-	
-	String tempNoteName;
+
 	for (int i=0 ;i<numOfWhiteKeys; i++) {
-	    tempNoteName = noteValues[i].name();
-	    whiteKeys[i] = new PianoKey(tempNoteName.contains(Constants.FLAT) ? noteValues[i+1]: noteValues[i]);
+	    whiteKeys[i] = new PianoKey(noteValues[i]);
 	}
-	
+	int offset = Utils.getIndexOfFlatNotes();
 	for(int i = 0; i<numOfBlackKeys;i++)
 	{
-	    blackKeys[i] = new PianoKey(noteValues[i]);
+	    blackKeys[i] = new PianoKey(noteValues[offset+i]);
 	}
 	
     }
