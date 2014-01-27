@@ -1,4 +1,4 @@
-package com.rockwood.earsy.controller;
+package com.rockwood.earsy.controller.activity;
 
 import com.rockwood.earsy.R;
 

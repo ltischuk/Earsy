@@ -4,6 +4,7 @@ import com.rockwood.earsy.model.MusicNote;
 import com.rockwood.earsy.utils.Utils;
 import com.rockwood.earsy.view.graphics.BlackKeyPaint;
 import com.rockwood.earsy.view.graphics.BlackKeyTextPaint;
+import com.rockwood.earsy.view.graphics.TouchedKeyPaint;
 import com.rockwood.earsy.view.graphics.WhiteKeyPaint;
 import com.rockwood.earsy.view.graphics.WhiteKeyTextPaint;
 
@@ -17,11 +18,13 @@ public class PianoView extends View {
     BlackKeyPaint blackPaint;
     WhiteKeyTextPaint wkTextPaint;
     BlackKeyTextPaint bkTextPaint;
+    TouchedKeyPaint hitKeyPaint;
     int numOfWhiteKeys = 7;
     int numOfBlackKeys = 5;
     int blackKeySpacerVal = 2;
-    PianoKey[] whiteKeys;
-    PianoKey[] blackKeys;
+    PianoKey[] whiteKeys = null;
+    PianoKey[] blackKeys = null;
+    PianoKey hitKey = null;
     
     double viewDimensionScale = .75;
     double blackWidthScale = 0.25;
@@ -42,15 +45,30 @@ public class PianoView extends View {
     protected void onDraw(Canvas canvas) {
 	super.onDraw(canvas);
 	for (PianoKey key : whiteKeys) {
-	    canvas.drawRect(key.getRect(), whitePaint);
+	    if( hitKey!= null && key.equals(hitKey))
+	    {
+		 canvas.drawRect(key.getRect(), hitKeyPaint);
+	    }
+	    else
+	    {
+		 canvas.drawRect(key.getRect(), whitePaint);
+	    }
+	   
 	    canvas.drawText(key.getNote().getDisplay(), key.getXText(), key.getYText(), wkTextPaint);
 	}
 	for (PianoKey key : blackKeys) {
-	    canvas.drawRect(key.getRect(), blackPaint);
+	    if(hitKey!=null && key.equals(hitKey))
+	    {
+		 canvas.drawRect(key.getRect(), hitKeyPaint);
+	    }
+	    else
+	    {
+		 canvas.drawRect(key.getRect(), blackPaint);
+	    }
 	    canvas.drawText(key.getNote().getDisplay().substring(0, 2), key.getXText(), key.getYText(), bkTextPaint);
 	    canvas.drawText(key.getNote().getDisplay().substring(2, 4), key.getXText(), key.getYText() + bkTextPaint.getTextSize(), bkTextPaint);
 	}
-
+	
     }
 
     /**
@@ -63,6 +81,7 @@ public class PianoView extends View {
 	bkTextPaint = new BlackKeyTextPaint();
 	whitePaint = new WhiteKeyPaint();
 	blackPaint = new BlackKeyPaint();
+	hitKeyPaint = new TouchedKeyPaint();
 	
 	whiteKeys = new PianoKey[numOfWhiteKeys];
 	blackKeys = new PianoKey[numOfBlackKeys];
@@ -130,5 +149,33 @@ public class PianoView extends View {
 	    
 	}
     } 
+    
+    public MusicNote getNoteTouched(float x, float y)
+    {
+	int touchX = (int) x;
+	int touchY = (int) y;
+	//first see if its a white key then check black key coordinates
+	for (PianoKey whiteKey : whiteKeys)
+	{	    
+	    if(whiteKey.getRect().contains(touchX, touchY))
+	    {
+		hitKey = whiteKey;
+		//check if its on a black key
+		for(PianoKey blackKey: blackKeys)
+		{
+		    if(blackKey.getRect().contains((int)x,(int) y))
+		    {
+			hitKey = blackKey;			
+		    }
+		    
+		}
+		break;		
+	    }
+	}
+	invalidate();
+	return hitKey.getNote();
+    }
+    
+    
     
 }
