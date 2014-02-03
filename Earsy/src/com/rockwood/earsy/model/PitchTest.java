@@ -4,15 +4,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import android.media.MediaPlayer;
-
 public class PitchTest 
 {
 
     // Total number of notes to test on
     public static final int TOTALNOTES = 12;
     //source folder for all audio files
-    public static final String AUDIOPATH = "/audio/Piano.";
     public static final String AUDIOSUFFIX = ".mp3";
     //score on test
     private int score = 0;
@@ -20,8 +17,6 @@ public class PitchTest
     private int questionNumber = 0;    
     //List to hold the randomized ordering of questions
     List<Integer> questionList;
-    // set up MediaPlayer
-    MediaPlayer audioPlayer = new MediaPlayer();
 
     /**
      * Constructor for a new Pitch Test
@@ -57,34 +52,24 @@ public class PitchTest
     public int getScore() 
     {
 	return score;
-    }
+    }    
     
-    /**
-     * Play the audio file 
-     * @param fileName
-     */
-    public void playAudio() {
-
-	String fileName = MusicNote.values()[questionList.get(questionNumber)].name();
-
-	try {
-	    audioPlayer.setDataSource(AUDIOPATH + fileName);
-	    audioPlayer.prepare();
-	    audioPlayer.start();
-	} catch (Exception e) {
-	    e.printStackTrace();
-	}
-    }
-    
-    /**
-     * Stop the audio from playing
-     */
-    public void stopAudio()
+    public MusicNote getNoteToPlay()
     {
-	if(audioPlayer.isPlaying())
+	return MusicNote.values()[questionList.get(questionNumber)];
+    }
+   
+    
+    public boolean guessNote(MusicNote note)
+    {
+	if(note.name() == MusicNote.values()[questionList.get(questionNumber)].name())
 	{
-	    audioPlayer.stop();
-	}	
+	    return true;
+	}
+	else
+	{
+	    return false;
+	}
     }
     
     

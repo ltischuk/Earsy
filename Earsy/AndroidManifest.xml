@@ -12,9 +12,9 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/CustomThemeOrange" >
+        android:theme="@style/CustomTheme" >
         <activity
-            android:name="com.rockwood.earsy.controller.MainActivity"
+            android:name="com.rockwood.earsy.controller.activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,12 +22,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.rockwood.earsy.controller.PitchTestActivity"
+            android:name="com.rockwood.earsy.controller.activity.PitchTestActivity"
             android:label="@string/title_activity_pitch_test" >
-            android:parentActivityName="com.rockwood.earsy.MainActivity" >
+            android:parentActivityName="com.rockwood.earsy.controller.activity.MainActivity" >
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.rockwood.earsy.MainActivity" />
+            android:value="com.rockwood.earsy.controller.activity.MainActivity" />
             
         </activity>
     </application>

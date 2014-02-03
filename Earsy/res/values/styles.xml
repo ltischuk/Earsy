@@ -18,12 +18,14 @@
          All customizations that are NOT specific to a particular API-level can go here.
     </style>
     -->
-        <style name="CustomThemeOrange" parent="@android:style/Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/CustomActionBarOrange</item>
+        <style name="CustomTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/CustomActionBar</item>
+        <item name="android:windowBackground">@drawable/app_gradient</item>
+           <item name="android:colorBackgroundCacheHint">#00000000</item>
     </style>
 
-    <style name="CustomActionBarOrange" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">#FF6600</item>
+    <style name="CustomActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">#4f0770</item>
     </style>
     
     
