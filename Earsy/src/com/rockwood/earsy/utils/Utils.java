@@ -8,6 +8,8 @@ public class Utils {
 
     public static final String FLAT = "b";
     public static final int NOTEHELPTEXTSIZE = 14;
+    public static final String CORRECTTOAST = "That is correct!";
+    public static final String WRONGTOAST = "Sorry, that is not right!";
     
     public static int getIndexOfFlatNotes()
     {
