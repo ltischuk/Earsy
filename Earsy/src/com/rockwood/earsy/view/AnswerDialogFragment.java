@@ -26,7 +26,7 @@ public final class AnswerDialogFragment extends DialogFragment
 		// Use the Builder class for convenient dialog construction
 		final AlertDialog.Builder builder = new AlertDialog.Builder(
 				getActivity());
-		final PitchTestActivity pitchTest = (PitchTestActivity) getActivity();
+		final PitchTestActivity activity = (PitchTestActivity) getActivity();
 		builder.setMessage(R.string.correct_answer)
 				.setPositiveButton(R.string.next_question,
 						new DialogInterface.OnClickListener()
@@ -35,7 +35,8 @@ public final class AnswerDialogFragment extends DialogFragment
 							public void onClick(final DialogInterface dialog,
 									final int id)
 							{
-								pitchTest.setNextQuestion();
+								activity.doPositiveClick();
+								dialog.dismiss();
 							}
 						})
 				.setNegativeButton(R.string.quit,
@@ -50,22 +51,6 @@ public final class AnswerDialogFragment extends DialogFragment
 						});
 		// Create the AlertDialog object and return it
 		return builder.create();
-	}
-	
-	void showDialog() {
-	    DialogFragment newFragment = AnswerDialogFragment.newInstance(
-	            R.string.result);
-	    newFragment.show(getFragmentManager(), "dialog");
-	}
-
-	public void doPositiveClick() {
-	    // Do stuff here.
-	    
-	}
-
-	public void doNegativeClick() {
-	    // Do stuff here.
-	   
 	}
 
 }

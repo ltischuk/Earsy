@@ -41,7 +41,7 @@ public class PitchTest
 	public String getQuestionNumberInfo()
 	{
 		return (questionNumber + 1) + " out of " + TOTALNOTES;
-	}
+	};
 
 	/**
 	 * Get the score of the test
@@ -72,7 +72,7 @@ public class PitchTest
 	{
 		if(questionNumber< questionList.size())
 		{
-			questionNumber++;
+			++questionNumber;
 		}
 			
 	}

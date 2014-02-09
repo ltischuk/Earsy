@@ -24,6 +24,7 @@ public class PitchTestActivity extends Activity
 	private PitchTest test;
 	private MediaPlayer mp;
 	private TextView textViewQNum;
+	private View pianoView;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState)
@@ -52,16 +53,21 @@ public class PitchTestActivity extends Activity
 			}
 		});
 
-		final View pianoView = findViewById(R.id.pianoView);
+		pianoView = findViewById(R.id.pianoView);
 		pianoView.setOnTouchListener(new View.OnTouchListener()
 		{
 
 			@Override
 			public boolean onTouch(final View v, final MotionEvent event)
 			{
-				checkAnswer(((PianoView) v).getNoteTouched(event.getX(),
+				if(event.getAction() == MotionEvent.ACTION_DOWN)
+				{
+					checkAnswer(((PianoView) v).getNoteTouched(event.getX(),
 						event.getY()));
-				return true;
+					return true;
+				}
+				
+				return false;
 			}
 		});
 	}
@@ -87,6 +93,7 @@ public class PitchTestActivity extends Activity
 	{
 		test.incQuestionNum();
 		textViewQNum.setText(test.getQuestionNumberInfo());
+		mp.
 	}
 	
 	void showDialog() {
@@ -96,7 +103,8 @@ public class PitchTestActivity extends Activity
 	}
 
 	public void doPositiveClick() {
-	    // Do stuff here.
+		setNextQuestion();
+		((PianoView) pianoView).resetView();
 	    
 	}
 
