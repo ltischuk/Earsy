@@ -93,7 +93,6 @@ public class PitchTestActivity extends Activity
 	{
 		test.incQuestionNum();
 		textViewQNum.setText(test.getQuestionNumberInfo());
-		mp.
 	}
 	
 	void showDialog() {
