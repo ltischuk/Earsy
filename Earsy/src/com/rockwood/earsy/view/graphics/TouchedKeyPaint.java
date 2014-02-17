@@ -9,7 +9,7 @@ public class TouchedKeyPaint extends Paint
     {
 	super();
 	setStyle(Paint.Style.FILL);
-	setColor(Color.BLUE);    
+	setColor(Color.LTGRAY);    
 	setStrokeWidth(3);
 	setFlags(Paint.ANTI_ALIAS_FLAG);
 	setTextAlign(Align.CENTER);

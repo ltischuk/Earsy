@@ -4,3 +4,5 @@ ea523d lighter red
 d93a25 dark red
 
 584f4f grey
+
+play button blue unselected : 17cac6

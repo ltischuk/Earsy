@@ -1,9 +1,14 @@
 package com.rockwood.earsy.controller.activity;
 
+import java.util.EnumMap;
+
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
+import android.renderscript.RenderScript.Priority;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,7 +27,6 @@ public class PitchTestActivity extends Activity
 {
 
 	private PitchTest test;
-	private MediaPlayer mp;
 	private TextView textViewQNum;
 	private View pianoView;
 
@@ -33,8 +37,6 @@ public class PitchTestActivity extends Activity
 		setContentView(R.layout.activity_pitch_test);
 
 		test = new PitchTest();
-		mp = MediaPlayer.create(this,
-				Utils.getMp3FromMusicNote(test.getNoteToPlay()));
 		// Get our TextView object.
 		textViewQNum = (TextView) findViewById(R.id.textViewQNum);
 		textViewQNum.setText(test.getQuestionNumberInfo());
@@ -47,7 +49,14 @@ public class PitchTestActivity extends Activity
 			public boolean onTouch(final View v, final MotionEvent event)
 			{
 				if (event.getAction() == MotionEvent.ACTION_DOWN) {
-					mp.start();
+					MediaPlayer player = MediaPlayer.create(v.getContext(), Utils.getMp3FromMusicNote(test.getNoteToPlay()));
+					player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+					    public void onCompletion(MediaPlayer mp) {
+					        mp.stop();
+					        mp.release();
+					    }
+					});
+					player.start();
 				}
 				return true;
 			}
@@ -64,7 +73,7 @@ public class PitchTestActivity extends Activity
 				{
 					checkAnswer(((PianoView) v).getNoteTouched(event.getX(),
 						event.getY()));
-					return true;
+					return true;				
 				}
 				
 				return false;

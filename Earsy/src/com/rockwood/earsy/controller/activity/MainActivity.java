@@ -1,20 +1,43 @@
 package com.rockwood.earsy.controller.activity;
 
 import com.rockwood.earsy.R;
+import com.rockwood.earsy.model.MusicNote;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends Activity {
 
+Typeface denseFont;
+    
+    	   
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		denseFont = Typeface.createFromAsset(getAssets(), "Dense-Regular.otf"); 
 		setContentView(R.layout.activity_main);
+		Button quizBtn = (Button) findViewById(R.id.button);
+		quizBtn.setTypeface(denseFont, Typeface.BOLD);		
 		
+		quizBtn.setOnTouchListener(new View.OnTouchListener()
+		{
+
+			@Override
+			public boolean onTouch(final View v, final MotionEvent event)
+			{
+				if (event.getAction() == MotionEvent.ACTION_DOWN) {
+					initPitchTest(v);
+				}
+				return true;
+			}
+		});
 
 	}
 

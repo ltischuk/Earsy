@@ -3,7 +3,7 @@
 
     <string name="app_name">Earsy</string>
     <string name="action_settings">Settings</string>
-    <string name="main_btnStartTraining">Start Perfect Pitch Test</string>
+    <string name="main_btnStartTraining">Quiz Me</string>
     <string name="logo_content">earsy logo</string>
     <string name="title_activity_pitch_test">PitchTestActivity</string>
     <string name="pitch_test_instruc">Press Play then Touch piano key to guess pitch</string>
