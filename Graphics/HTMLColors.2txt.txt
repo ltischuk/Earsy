@@ -6,3 +6,9 @@ d93a25 dark red
 584f4f grey
 
 play button blue unselected : 17cac6
+
+New design 2/16
+Red #C63D0F
+Dark cool color #3B3738
+Pink  #FDF3E7
+Blueish tint #7E8F7C

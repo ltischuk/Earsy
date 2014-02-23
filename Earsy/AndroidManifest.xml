@@ -30,6 +30,10 @@
             android:value="com.rockwood.earsy.controller.activity.MainActivity" />
             
         </activity>
+        <activity
+            android:name="com.rockwood.earsy.controller.activity.ResultsActivity"
+            android:parentActivityName="com.rockwood.earsy.controller.activity.PitchTestActivity" >            
+        </activity>
     </application>
 
 </manifest>

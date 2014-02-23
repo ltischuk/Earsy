@@ -1,14 +1,10 @@
 package com.rockwood.earsy.controller.activity;
 
-import java.util.EnumMap;
-
 import android.app.Activity;
 import android.app.DialogFragment;
-import android.media.AudioManager;
+import android.content.Intent;
 import android.media.MediaPlayer;
-import android.media.SoundPool;
 import android.os.Bundle;
-import android.renderscript.RenderScript.Priority;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
@@ -49,12 +45,15 @@ public class PitchTestActivity extends Activity
 			public boolean onTouch(final View v, final MotionEvent event)
 			{
 				if (event.getAction() == MotionEvent.ACTION_DOWN) {
-					MediaPlayer player = MediaPlayer.create(v.getContext(), Utils.getMp3FromMusicNote(test.getNoteToPlay()));
-					player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-					    public void onCompletion(MediaPlayer mp) {
-					        mp.stop();
-					        mp.release();
-					    }
+					MediaPlayer player = MediaPlayer.create(v.getContext(),
+							Utils.getMp3FromMusicNote(test.getNoteToPlay()));
+					player.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+					{
+						public void onCompletion(MediaPlayer mp)
+						{
+							mp.stop();
+							mp.release();
+						}
 					});
 					player.start();
 				}
@@ -69,13 +68,12 @@ public class PitchTestActivity extends Activity
 			@Override
 			public boolean onTouch(final View v, final MotionEvent event)
 			{
-				if(event.getAction() == MotionEvent.ACTION_DOWN)
-				{
+				if (event.getAction() == MotionEvent.ACTION_DOWN) {
 					checkAnswer(((PianoView) v).getNoteTouched(event.getX(),
-						event.getY()));
-					return true;				
+							event.getY()));
+					return true;
 				}
-				
+
 				return false;
 			}
 		});
@@ -94,32 +92,60 @@ public class PitchTestActivity extends Activity
 		if (test.guessNote(guessedNote)) {
 			showDialog();
 		} else {
-			Toast.makeText(getApplicationContext(), R.string.wrong_answer, Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), R.string.wrong_answer,
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 
+	/**
+	 * Increment the question and change the text of the question number
+	 */
 	public void setNextQuestion()
 	{
 		test.incQuestionNum();
 		textViewQNum.setText(test.getQuestionNumberInfo());
 	}
-	
-	void showDialog() {
-	    DialogFragment newFragment = AnswerDialogFragment.newInstance(
-	            R.string.result);
-	    newFragment.show(getFragmentManager(), "dialog");
+
+	/**
+	 * Show the dialog after answering a question
+	 */
+	void showDialog()
+	{
+		DialogFragment newFragment = AnswerDialogFragment
+				.newInstance(R.string.result);
+		newFragment.show(getFragmentManager(), "dialog");
 	}
 
-	public void doPositiveClick() {
-		setNextQuestion();
-		((PianoView) pianoView).resetView();
-	    
+	public void doPositiveClick()
+	{
+		if (test.getCurrentQuestionNum() < PitchTest.TOTALNOTES) {
+			setNextQuestion();
+			((PianoView) pianoView).resetView();
+		} else {
+			startResultActivity();
+		}
 	}
 
-	public void doNegativeClick() {
-	    // Do stuff here.
-	   
+	public void doNegativeClick()
+	{
+		// Do stuff here.
+
 	}
 
-	
+	public PitchTest getCurrentTest()
+	{
+		return test;
+	}
+
+	public void startResultActivity()
+	{
+		Intent intent = new Intent(this, ResultsActivity.class);
+		Bundle extras = new Bundle();
+		extras.putInt(Utils.SCOREEXTRA, test.getScore());
+		// add bundle to intent
+		intent.putExtras(extras);
+		startActivity(intent);
+
+	}
+
 }
