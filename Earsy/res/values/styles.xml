@@ -9,7 +9,7 @@
         
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here."res/values-v11"
         
     </style>
 
@@ -24,6 +24,12 @@
 
     <style name="CustomActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">#B71427</item>
+    </style>
+    
+     <style name="HomeScreenButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
     
     
