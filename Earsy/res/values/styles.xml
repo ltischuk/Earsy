@@ -23,7 +23,7 @@
     </style>
 
     <style name="CustomActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">#B71427</item>
+        <item name="android:background">#992667</item>
     </style>
     
      <style name="HomeScreenButtonStyle">

@@ -14,6 +14,6 @@
 				android:right="15dp"
 				android:top="2dp" />
 			
-			<solid android:color="#6DBDD6" />
+			<solid android:color="#C9F76F" />
 	
 </shape>

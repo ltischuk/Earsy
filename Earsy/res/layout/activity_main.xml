@@ -21,7 +21,7 @@
     <Button
         android:id="@+id/button"
         style="@style/HomeScreenButtonStyle"
-        android:background="@drawable/blue_btn_selector"
+        android:background="@drawable/red_btn_selector"
         android:layout_alignTop="@+id/logo"
         android:layout_marginTop="182dp"
         android:text="@string/main_btnStartTraining"
