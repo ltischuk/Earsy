@@ -6,6 +6,7 @@
     <string name="main_btnStartTraining">Quiz Me</string>
     <string name="logo_content">earsy logo</string>
     <string name="title_activity_pitch_test">PitchTestActivity</string>
+    <string name="banner_text">Perfect Pitch Training</string>
     <string name="pitch_test_instruc">Press Play then Touch piano key to guess pitch</string>
     <string name="play_btnContent">plays audio for user</string>
     <string name="correct_answer">Correct!</string>

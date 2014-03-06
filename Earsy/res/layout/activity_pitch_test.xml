@@ -7,7 +7,7 @@
  
         <TextView
             android:id="@+id/textViewQNum"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="@dimen/default_padding"
             android:layout_width="wrap_content"
         	android:layout_height="wrap_content"/> 
         	
@@ -26,8 +26,8 @@
             android:layout_below="@+id/textViewInstruction"
             android:layout_centerHorizontal="true"
             android:src="@drawable/ic_playbutton"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="@dimen/default_padding"
+            android:layout_marginBottom="@dimen/default_padding"
             android:background="@android:color/transparent"
             android:contentDescription="@string/play_btnContent" />
         
@@ -35,8 +35,8 @@
             class="com.rockwood.earsy.view.PianoView"
             android:id="@+id/pianoView"
             android:layout_below="@+id/playButton"
-            android:layout_marginLeft="10dp"
- 			android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/default_padding"
+ 			android:layout_marginRight="@dimen/default_padding"
  			android:layout_centerHorizontal="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
