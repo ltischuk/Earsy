@@ -22,6 +22,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.rockwood.earsy.controller.activity.SettingsActivity"
+            android:parentActivityName="com.rockwood.earsy.controller.activity.MainActivity" >            
+        </activity>
+        <activity
             android:name="com.rockwood.earsy.controller.activity.PitchTestActivity"
             android:label="@string/title_activity_pitch_test" >
             android:parentActivityName="com.rockwood.earsy.controller.activity.MainActivity" >

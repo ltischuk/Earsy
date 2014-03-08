@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="prefGuessOptions">
+        <item name="pref_guess_unlimited">Allow guess until answer is correct</item>
+        <item name="pref_guess_once">Only one time per question</item>
+    </string-array>
+    <string-array name="prefGuessOptionsValues">
+        <item name="pref_unlimited">0</item>
+        <item name="pref_once">1</item>
+    </string-array>
+</resources>

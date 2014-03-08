@@ -2,6 +2,7 @@ package com.rockwood.earsy.controller.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -11,11 +12,13 @@ import com.rockwood.earsy.utils.Utils;
 
 public class ResultsActivity extends Activity
 {
+	Typeface denseFont;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+		denseFont = Typeface.createFromAsset(getAssets(), "Dense-Regular.otf");
 		setContentView(R.layout.activity_results);
 
 		// get passed intent
@@ -27,6 +30,10 @@ public class ResultsActivity extends Activity
 				+ ((score / MusicNote.values().length) * 100) + "%.";
 		TextView textViewResults = (TextView) findViewById(R.id.textViewResults);
 		textViewResults.setText(msg);
+		textViewResults.setTypeface(denseFont, Typeface.BOLD);
+
+		TextView textViewHeading = (TextView) findViewById(R.id.textViewResultHeader);
+		textViewHeading.setTypeface(denseFont, Typeface.BOLD);
 
 	}
 
