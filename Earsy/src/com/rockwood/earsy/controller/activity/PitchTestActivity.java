@@ -3,8 +3,10 @@ package com.rockwood.earsy.controller.activity;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,13 +27,14 @@ public class PitchTestActivity extends Activity
 	private PitchTest test;
 	private TextView textViewQNum;
 	private View pianoView;
+	private boolean unlimitedGuessAttempts;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pitch_test);
-
+		configureTestFromPrefs();
 		test = new PitchTest();
 		// Get our TextView object.
 		textViewQNum = (TextView) findViewById(R.id.textViewQNum);
@@ -89,11 +92,15 @@ public class PitchTestActivity extends Activity
 
 	public void checkAnswer(final MusicNote guessedNote)
 	{
-		if (test.guessNote(guessedNote)) {
-			showDialog();
+		if (unlimitedGuessAttempts) {
+			if (test.guessNote(guessedNote)) {
+				displayDialog(true);
+			} else {
+				Toast.makeText(getApplicationContext(), R.string.wrong_answer,
+						Toast.LENGTH_SHORT).show();
+			}
 		} else {
-			Toast.makeText(getApplicationContext(), R.string.wrong_answer,
-					Toast.LENGTH_SHORT).show();
+			displayDialog(test.guessNote(guessedNote));
 		}
 	}
 
@@ -106,19 +113,28 @@ public class PitchTestActivity extends Activity
 		textViewQNum.setText(test.getQuestionNumberInfo());
 	}
 
+	private void configureTestFromPrefs()
+	{
+		SharedPreferences sharedPref = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		unlimitedGuessAttempts = sharedPref.getString(
+				SettingsActivity.PREF_GUESS_OPTIONS, "").equals(
+				SettingsActivity.PREF_GUESS_UNLIMITED);
+	}
+
 	/**
 	 * Show the dialog after answering a question
 	 */
-	void showDialog()
+	public void displayDialog(boolean isCorrectAnswer)
 	{
-		DialogFragment newFragment = AnswerDialogFragment
-				.newInstance(R.string.result);
+		DialogFragment newFragment = AnswerDialogFragment.newInstance(
+				R.string.result, isCorrectAnswer);
 		newFragment.show(getFragmentManager(), "dialog");
 	}
 
 	public void doPositiveClick()
 	{
-		if (test.getCurrentQuestionNum() < PitchTest.TOTALNOTES) {
+		if (test.getCurrentQuestionNum() < test.getTotalNotes()) {
 			setNextQuestion();
 			((PianoView) pianoView).resetView();
 		} else {

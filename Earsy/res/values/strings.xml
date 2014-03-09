@@ -16,7 +16,9 @@
     <string name="quit">Quit</string>
     <string name="quit_return_home">Quit And Return to Home Screen</string>
     <string name="pref_guess">Guess Options</string>
-    <string name="pref_guess_summary">Select guess options for quiz</string>
+    <string name="pref_guess_summary">Choose guess options for quiz</string>
+    <string name="pref_octave">Octave Options</string>
+    <string name="pref_octave_summary">Choose octaves to include in quiz</string>
     <string name="title_section3">Section 3</string>
     <string name="keybutton_c_txt">C</string>
     <string name="keybutton_csdb_txt">C# Db</string>

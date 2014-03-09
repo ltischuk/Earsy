@@ -5,5 +5,12 @@
             android:summary="@string/pref_guess_summary"
             android:entryValues="@array/prefGuessOptionsValues"
             android:defaultValue="0"
-            android:title="@string/pref_guess" />    		
+            android:title="@string/pref_guess" />
+    <ListPreference
+            android:key="prefOctaveOptions"
+            android:entries="@array/prefOctaveOptions"
+            android:summary="@string/pref_octave_summary"
+            android:entryValues="@array/prefOctaveOptionsValues"
+            android:defaultValue="1"
+            android:title="@string/pref_octave" />      		
 </PreferenceScreen>

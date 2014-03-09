@@ -10,7 +10,7 @@ public class PitchTest
 {
 
 	// Total number of notes to test on
-	public static final int TOTALNOTES = 12;
+	private int totalNotes = 12;
 	// source folder for all audio files
 	public static final String AUDIOSUFFIX = ".mp3";
 	// score on test
@@ -31,13 +31,23 @@ public class PitchTest
 		fillAndShuffleList();
 	}
 
+	public int getTotalNotes()
+	{
+		return totalNotes;
+	}
+
+	public int getNoteGuessAttempts(MusicNote note)
+	{
+		return noteGuessAttempts.get(note);
+	}
+
 	/**
 	 * Create the list of randomized question numbers
 	 */
 	private void fillAndShuffleList()
 	{
 		questionList = new ArrayList<Integer>();
-		for (int i = 0; i < TOTALNOTES; i++) {
+		for (int i = 0; i < totalNotes; i++) {
 			questionList.add(Integer.valueOf(i));
 		}
 		Collections.shuffle(questionList);
@@ -50,7 +60,7 @@ public class PitchTest
 
 	public String getQuestionNumberInfo()
 	{
-		return (questionNumber + 1) + " out of " + TOTALNOTES;
+		return (questionNumber + 1) + " out of " + totalNotes;
 	};
 
 	/**

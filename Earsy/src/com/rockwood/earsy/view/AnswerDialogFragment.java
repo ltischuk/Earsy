@@ -8,18 +8,26 @@ import android.os.Bundle;
 
 import com.rockwood.earsy.R;
 import com.rockwood.earsy.controller.activity.PitchTestActivity;
-import com.rockwood.earsy.model.PitchTest;
 
 public final class AnswerDialogFragment extends DialogFragment
 {
 	private static final String nextQuestionStr = "Next Question";
 	private static final String viewResultsStr = "View My Results";
-	
-	public static AnswerDialogFragment newInstance(final int title)
+
+	/**
+	 * New Static Instance of AnswerDialogFragment
+	 * 
+	 * @param title
+	 * @param isCorrect
+	 * @return
+	 */
+	public static AnswerDialogFragment newInstance(final int title,
+			boolean isCorrect)
 	{
 		final AnswerDialogFragment frag = new AnswerDialogFragment();
 		final Bundle args = new Bundle();
 		args.putInt("title", title);
+		args.putBoolean("answer", isCorrect);
 		frag.setArguments(args);
 		return frag;
 	}
@@ -28,15 +36,19 @@ public final class AnswerDialogFragment extends DialogFragment
 	public Dialog onCreateDialog(final Bundle savedInstanceState)
 	{
 		String resultMsg = nextQuestionStr;
+		int messageId = R.string.correct_answer;
 		// Use the Builder class for convenient dialog construction
 		final AlertDialog.Builder builder = new AlertDialog.Builder(
 				getActivity());
-		final PitchTestActivity activity = (PitchTestActivity) getActivity();
-		if(activity.getCurrentTest().getCurrentQuestionNum()== PitchTest.TOTALNOTES)
-		{
+		final PitchTestActivity pitchTestActivity = (PitchTestActivity) getActivity();
+		if (pitchTestActivity.getCurrentTest().getCurrentQuestionNum() == pitchTestActivity
+				.getCurrentTest().getTotalNotes()) {
 			resultMsg = viewResultsStr;
 		}
-		builder.setMessage(R.string.correct_answer)
+		if (getArguments().getBoolean("answer") == false) {
+			messageId = R.string.wrong_answer;
+		}
+		builder.setMessage(messageId)
 				.setPositiveButton(resultMsg,
 						new DialogInterface.OnClickListener()
 						{
@@ -44,7 +56,7 @@ public final class AnswerDialogFragment extends DialogFragment
 							public void onClick(final DialogInterface dialog,
 									final int id)
 							{
-								activity.doPositiveClick();
+								pitchTestActivity.doPositiveClick();
 								dialog.dismiss();
 							}
 						})
@@ -55,7 +67,7 @@ public final class AnswerDialogFragment extends DialogFragment
 							public void onClick(final DialogInterface dialog,
 									final int id)
 							{
-								activity.doNegativeClick();
+								pitchTestActivity.doNegativeClick();
 								dialog.dismiss();
 							}
 						});

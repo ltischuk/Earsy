@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -38,6 +39,7 @@ public class MainActivity extends Activity
 				return true;
 			}
 		});
+		PreferenceManager.setDefaultValues(this, R.layout.preferences, false);
 
 	}
 
