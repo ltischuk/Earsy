@@ -28,6 +28,7 @@ public class PitchTestActivity extends Activity
 	private TextView textViewQNum;
 	private View pianoView;
 	private boolean unlimitedGuessAttempts;
+	private boolean enablePiano = false;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState)
@@ -35,7 +36,6 @@ public class PitchTestActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pitch_test);
 		configureTestFromPrefs();
-		test = new PitchTest();
 		// Get our TextView object.
 		textViewQNum = (TextView) findViewById(R.id.textViewQNum);
 		textViewQNum.setText(test.getQuestionNumberInfo());
@@ -49,7 +49,7 @@ public class PitchTestActivity extends Activity
 			{
 				if (event.getAction() == MotionEvent.ACTION_DOWN) {
 					MediaPlayer player = MediaPlayer.create(v.getContext(),
-							Utils.getMp3FromMusicNote(test.getNoteToPlay()));
+							test.getNoteToPlay().getFile());
 					player.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
 					{
 						public void onCompletion(MediaPlayer mp)
@@ -59,6 +59,7 @@ public class PitchTestActivity extends Activity
 						}
 					});
 					player.start();
+					enablePiano = true;
 				}
 				return true;
 			}
@@ -72,8 +73,14 @@ public class PitchTestActivity extends Activity
 			public boolean onTouch(final View v, final MotionEvent event)
 			{
 				if (event.getAction() == MotionEvent.ACTION_DOWN) {
-					checkAnswer(((PianoView) v).getNoteTouched(event.getX(),
-							event.getY()));
+					if (enablePiano) {
+						checkAnswer(((PianoView) v).getNoteTouched(
+								event.getX(), event.getY()));
+					} else {
+						Toast.makeText(getApplicationContext(),
+								R.string.press_play_first, Toast.LENGTH_SHORT)
+								.show();
+					}
 					return true;
 				}
 
@@ -111,15 +118,28 @@ public class PitchTestActivity extends Activity
 	{
 		test.incQuestionNum();
 		textViewQNum.setText(test.getQuestionNumberInfo());
+		enablePiano = false;
 	}
 
 	private void configureTestFromPrefs()
 	{
+		boolean includeBassOctave;
+		boolean includeTrebleOctave;
+		boolean includeMiddleOctave;
 		SharedPreferences sharedPref = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		unlimitedGuessAttempts = sharedPref.getString(
 				SettingsActivity.PREF_GUESS_OPTIONS, "").equals(
 				SettingsActivity.PREF_GUESS_UNLIMITED);
+		includeBassOctave = sharedPref.getBoolean(
+				SettingsActivity.PREF_BASS_OCTAVE, true);
+		includeMiddleOctave = sharedPref.getBoolean(
+				SettingsActivity.PREF_MIDDLE_OCTAVE, true);
+		includeTrebleOctave = sharedPref.getBoolean(
+				SettingsActivity.PREF_TREBLE_OCTAVE, true);
+
+		test = new PitchTest(includeBassOctave, includeMiddleOctave,
+				includeTrebleOctave);
 	}
 
 	/**

@@ -10,7 +10,7 @@ public class PitchTest
 {
 
 	// Total number of notes to test on
-	private int totalNotes = 12;
+	private int totalNotes = 0;
 	// source folder for all audio files
 	public static final String AUDIOSUFFIX = ".mp3";
 	// score on test
@@ -18,15 +18,26 @@ public class PitchTest
 	// current question the user is currently on, starts at 0
 	private int questionNumber = 0;
 	// List to hold the randomized ordering of questions
-	List<Integer> questionList;
+	private List<Integer> questionList;
 	// Map to hold guess attempts
-	Map<MusicNote, Integer> noteGuessAttempts;
+	private Map<MusicNote, Integer> noteGuessAttempts;
+	private static final int MAXNOTES = 36;
+	private static final int MAXBASSNUM = 11;
+	private static final int MAXMIDDLENUM = 23;
+	private static final int MAXTREBLENUM = 35;
+	private boolean includeBassOctave;
+	private boolean includeMiddleOctave;
+	private boolean includeTrebleOctave;
 
 	/**
 	 * Constructor for a new Pitch Test
 	 */
-	public PitchTest()
+	public PitchTest(boolean includeBassOctave, boolean includeMiddleOctave,
+			boolean includeTrebleOctave)
 	{
+		this.includeMiddleOctave = includeBassOctave;
+		this.includeMiddleOctave = includeMiddleOctave;
+		this.includeTrebleOctave = includeTrebleOctave;
 		noteGuessAttempts = new HashMap<MusicNote, Integer>();
 		fillAndShuffleList();
 	}
@@ -47,10 +58,25 @@ public class PitchTest
 	private void fillAndShuffleList()
 	{
 		questionList = new ArrayList<Integer>();
-		for (int i = 0; i < totalNotes; i++) {
-			questionList.add(Integer.valueOf(i));
+		for (int i = 0; i < MAXNOTES; i++) {
+			if (verifyAddToQuestionList(i)) {
+				questionList.add(Integer.valueOf(i));
+				totalNotes++;
+			}
+
 		}
 		Collections.shuffle(questionList);
+	}
+
+	private boolean verifyAddToQuestionList(int num)
+	{
+		if ((num <= MAXBASSNUM && includeBassOctave)
+				|| (num > MAXBASSNUM && num <= MAXMIDDLENUM && includeMiddleOctave)
+				|| (num > MAXBASSNUM && num > MAXMIDDLENUM
+						&& num <= MAXTREBLENUM && includeTrebleOctave)) {
+			return true;
+		}
+		return false;
 	}
 
 	public int getCurrentQuestionNum()

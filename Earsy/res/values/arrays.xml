@@ -8,14 +8,4 @@
         <item name="pref_unlimited">0</item>
         <item name="pref_once">1</item>
     </string-array>
-    <string-array name="prefOctaveOptions">
-        <item name="pref_below_middleC">Bass Octave (One below Middle C)</item>
-        <item name="pref_middleC">Middle C Octave</item>
-        <item name="pref_above_middleC">Treble Octave (One above Middle C))</item>
-    </string-array>
-    <string-array name="prefOctaveOptionsValues">
-        <item name="pref_below">0</item>
-        <item name="pref_middle">1</item>
-        <item name="pref_above">2</item>
-    </string-array>
 </resources>
