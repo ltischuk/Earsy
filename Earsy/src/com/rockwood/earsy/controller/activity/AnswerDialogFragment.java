@@ -1,4 +1,4 @@
-package com.rockwood.earsy.view;
+package com.rockwood.earsy.controller.activity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.rockwood.earsy.R;
-import com.rockwood.earsy.controller.activity.PitchTestActivity;
 
 public final class AnswerDialogFragment extends DialogFragment
 {

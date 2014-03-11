@@ -111,8 +111,9 @@ public class PitchTest
 			attempts = noteGuessAttempts.get(note);
 		}
 		noteGuessAttempts.put(note, attempts + 1);
-		if (note.name() == MusicNote.values()[questionList.get(questionNumber)]
-				.name()) {
+		if (note.getDisplay().equals(
+				MusicNote.values()[questionList.get(questionNumber)]
+						.getDisplay())) {
 			if (attempts == 0) {
 				++correctGuesses;
 			}

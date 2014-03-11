@@ -11,7 +11,13 @@ public class Utils
 	public static final String WRONGTOAST = "Sorry, that is not right!";
 	public static final int TOPPRIORITY = 1;
 	public static final String SCOREEXTRA = "score";
+	public static final String TOTALNOTESEXTRA = "notes";
 
+	/**
+	 * Obtain the index of the first flat note
+	 * 
+	 * @return
+	 */
 	public static int getIndexOfFlatNotes()
 	{
 		for (MusicNote note : MusicNote.values()) {

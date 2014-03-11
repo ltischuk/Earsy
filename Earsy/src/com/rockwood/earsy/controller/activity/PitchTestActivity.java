@@ -18,7 +18,6 @@ import com.rockwood.earsy.R;
 import com.rockwood.earsy.model.MusicNote;
 import com.rockwood.earsy.model.PitchTest;
 import com.rockwood.earsy.utils.Utils;
-import com.rockwood.earsy.view.AnswerDialogFragment;
 import com.rockwood.earsy.view.PianoView;
 
 public class PitchTestActivity extends Activity
@@ -150,6 +149,7 @@ public class PitchTestActivity extends Activity
 		DialogFragment newFragment = AnswerDialogFragment.newInstance(
 				R.string.result, isCorrectAnswer);
 		newFragment.show(getFragmentManager(), "dialog");
+
 	}
 
 	public void doPositiveClick()
@@ -178,6 +178,7 @@ public class PitchTestActivity extends Activity
 		Intent intent = new Intent(this, ResultsActivity.class);
 		Bundle extras = new Bundle();
 		extras.putInt(Utils.SCOREEXTRA, test.getScore());
+		extras.putInt(Utils.TOTALNOTESEXTRA, test.getTotalNotes());
 		// add bundle to intent
 		intent.putExtras(extras);
 		startActivity(intent);

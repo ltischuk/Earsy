@@ -37,6 +37,7 @@
         android:layout_below="@+id/textViewBanner"
         android:layout_marginTop="@dimen/default_padding"
         android:text="@string/main_btnStartTraining"
+        android:textSize="@dimen/button_text_size"
         android:textColor="#FFFFFF" />
 
 </RelativeLayout>
