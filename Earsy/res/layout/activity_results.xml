@@ -14,7 +14,7 @@
             android:layout_marginBottom="@dimen/default_padding"
             android:layout_centerHorizontal="true"
             android:textSize="@dimen/header_text_size"
-            android:text="@string/text_quiz_results_header" />
+            android:text="@string/title_activity_results" />
         
         <TextView
             android:id="@+id/textViewResults"
@@ -23,7 +23,22 @@
             android:layout_marginTop="@dimen/default_padding"
             android:layout_centerHorizontal="true"
             android:textSize="@dimen/base_text_size"
+            android:textColor="#1261CE"
             android:layout_below="@+id/textViewResultHeader"/>
+        
+        <Button
+        	android:id="@+id/buttonGoHome"
+        	style="@style/HomeScreenButtonStyle"
+        	android:background="@drawable/red_btn_selector"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_below="@+id/textViewResults"
+        	android:layout_marginTop="@dimen/default_padding"
+        	android:layout_centerHorizontal="true"       
+        	android:text="@string/go_back_to_home"
+        	android:textSize="@dimen/button_text_size"
+        	android:textColor="#FFFFFF"
+        	android:gravity="center" />
 
 
 

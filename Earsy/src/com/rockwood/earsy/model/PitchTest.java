@@ -35,7 +35,7 @@ public class PitchTest
 	public PitchTest(boolean includeBassOctave, boolean includeMiddleOctave,
 			boolean includeTrebleOctave)
 	{
-		this.includeMiddleOctave = includeBassOctave;
+		this.includeBassOctave = includeBassOctave;
 		this.includeMiddleOctave = includeMiddleOctave;
 		this.includeTrebleOctave = includeTrebleOctave;
 		noteGuessAttempts = new HashMap<MusicNote, Integer>();

@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.rockwood.earsy.R;
@@ -30,11 +33,32 @@ public class ResultsActivity extends Activity
 				+ (int) ((score * 100.0f) / notes) + "%.";
 		TextView textViewResults = (TextView) findViewById(R.id.textViewResults);
 		textViewResults.setText(msg);
-		textViewResults.setTypeface(denseFont, Typeface.BOLD);
+		textViewResults.setTypeface(denseFont, Typeface.BOLD_ITALIC);
 
 		TextView textViewHeading = (TextView) findViewById(R.id.textViewResultHeader);
 		textViewHeading.setTypeface(denseFont, Typeface.BOLD);
 
+		Button homeBtn = (Button) findViewById(R.id.buttonGoHome);
+		homeBtn.setTypeface(denseFont, Typeface.BOLD);
+		homeBtn.setOnTouchListener(new View.OnTouchListener()
+		{
+
+			@Override
+			public boolean onTouch(final View v, final MotionEvent event)
+			{
+				if (event.getAction() == MotionEvent.ACTION_DOWN) {
+					displayHomeScreen(v);
+				}
+				return true;
+			}
+		});
+
+	}
+
+	private void displayHomeScreen(View v)
+	{
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
 	}
 
 }
