@@ -1,10 +1,10 @@
 package com.rockwood.earsy.controller.activity;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -16,7 +16,7 @@ import com.rockwood.earsy.R;
 public class MainActivity extends Activity
 {
 
-	Typeface denseFont;
+	public static Typeface denseFont;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -39,7 +39,29 @@ public class MainActivity extends Activity
 				return true;
 			}
 		});
-		PreferenceManager.setDefaultValues(this, R.layout.preferences, false);
+
+		Button helpBtn = (Button) findViewById(R.id.button_help);
+		helpBtn.setTypeface(denseFont, Typeface.BOLD);
+		helpBtn.setOnTouchListener(new View.OnTouchListener()
+		{
+
+			@Override
+			public boolean onTouch(final View v, final MotionEvent event)
+			{
+				if (event.getAction() == MotionEvent.ACTION_DOWN) {
+					showHelpDialog(v);
+				}
+				return true;
+			}
+		});
+
+	}
+
+	protected void showHelpDialog(View v)
+	{
+		DialogFragment newFragment = HelpDialogFragment
+				.newInstance(R.string.button_help_text);
+		newFragment.show(getFragmentManager(), "help_dialog");
 
 	}
 
@@ -73,7 +95,7 @@ public class MainActivity extends Activity
 	}
 
 	/** Called when the user clicks the Start Pitch Test button */
-	public void initPitchTest(View view)
+	private void initPitchTest(View view)
 	{
 		Intent intent = new Intent(this, PitchTestActivity.class);
 		startActivity(intent);

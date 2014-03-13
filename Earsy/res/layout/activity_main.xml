@@ -39,5 +39,17 @@
         android:text="@string/main_btnStartTraining"
         android:textSize="@dimen/button_text_size"
         android:textColor="#FFFFFF" />
+    
+    <Button
+        android:id="@+id/button_help"
+        style="@style/HomeScreenButtonStyle"
+        android:background="@drawable/blue_btn_selector"
+        android:layout_below="@+id/button"
+        android:layout_marginTop="@dimen/default_padding"
+        android:layout_alignRight="@+id/button"
+        android:layout_alignLeft="@+id/button"
+        android:text="@string/button_help_text"
+        android:textSize="@dimen/button_text_size"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>
