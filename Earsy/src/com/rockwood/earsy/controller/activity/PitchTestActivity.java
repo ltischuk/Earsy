@@ -28,6 +28,7 @@ public class PitchTestActivity extends Activity
 	private TextView textViewQNum;
 	private View pianoView;
 	private boolean unlimitedGuessAttempts;
+	private boolean playKeyOnGuess = false;
 	private boolean enablePiano = false;
 
 	@Override
@@ -119,6 +120,9 @@ public class PitchTestActivity extends Activity
 
 	public void checkAnswer(final MusicNote guessedNote)
 	{
+		if (playKeyOnGuess) {
+			playGuessedNote(guessedNote);
+		}
 		if (unlimitedGuessAttempts) {
 			if (test.guessNote(guessedNote)) {
 				displayDialog(true);
@@ -129,6 +133,35 @@ public class PitchTestActivity extends Activity
 		} else {
 			displayDialog(test.guessNote(guessedNote));
 		}
+	}
+
+	private void playGuessedNote(MusicNote guessedNote)
+	{
+		// level the note into the same octave as note being tested
+		MusicNote testedNote = test.getNoteToPlay();
+		int octave = testedNote.getOctave();
+		// loop through notes to find the guessed note in the same octave as the
+		// tested note
+		for (MusicNote note : MusicNote.values()) {
+			if (note.getDisplay().equals(guessedNote.getDisplay())
+					&& note.getOctave() == octave) {
+				guessedNote = note;
+				break;
+			}
+		}
+		// now play the note
+		MediaPlayer player = MediaPlayer.create(this.getBaseContext(),
+				guessedNote.getFile());
+		player.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+		{
+			public void onCompletion(MediaPlayer mp)
+			{
+				mp.stop();
+				mp.release();
+			}
+		});
+		player.start();
+
 	}
 
 	/**
@@ -157,6 +190,8 @@ public class PitchTestActivity extends Activity
 				SettingsActivity.PREF_MIDDLE_OCTAVE, true);
 		includeTrebleOctave = sharedPref.getBoolean(
 				SettingsActivity.PREF_TREBLE_OCTAVE, true);
+		playKeyOnGuess = sharedPref.getBoolean(
+				SettingsActivity.PREF_PLAY_KEY_ON_GUESS, true);
 
 		test = new PitchTest(includeBassOctave, includeMiddleOctave,
 				includeTrebleOctave);

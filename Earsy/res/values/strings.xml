@@ -24,7 +24,9 @@
         options include selection of up to 3 octave(s), 12 notes each, to be tested on in the quiz, the ability to keep guessing the pitch until correct, and the ability 
         to have the piano key play the note you guess when pressed. Once you choose desired settings and are ready to take a quiz, click the Quiz Me button on the main screen. </string>
     <string name="pref_guess">Guess Options</string>
-    <string name="pref_guess_summary">Choose guess options for quiz</string>
+    <string name="pref_guess_summary">Tap to change guess options for quiz</string>
+    <string name="pref_play_key_guess_title">Play Note on Guess</string>
+    <string name="pref_play_key_guess_summary">Check to play the note upon guess</string>
     <string name="pref_bass_octave_title">Include bass octave</string>
     <string name="pref_bass_octave_summary">Check to include octave below middle octave</string>
     <string name="pref_middle_octave_title">Include middle octave</string>

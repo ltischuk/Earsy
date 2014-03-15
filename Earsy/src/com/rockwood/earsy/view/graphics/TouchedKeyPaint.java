@@ -8,11 +8,11 @@ public class TouchedKeyPaint extends Paint
 	public TouchedKeyPaint()
 	{
 		super();
-		setStyle(Paint.Style.FILL);
-		setColor(Color.CYAN);
 		setStyle(Paint.Style.STROKE);
 		setColor(Color.BLACK);
 		setStrokeWidth(3);
+		setStyle(Paint.Style.FILL);
+		setColor(Color.DKGRAY);
 		setFlags(Paint.ANTI_ALIAS_FLAG);
 		setTextAlign(Align.CENTER);
 

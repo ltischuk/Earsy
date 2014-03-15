@@ -8,6 +8,11 @@
             android:title="@string/pref_guess" />
     <CheckBoxPreference
             android:defaultValue="false"
+            android:key="prefPlayKeyOnGuess"
+            android:summary="@string/pref_play_key_guess_summary"
+            android:title="@string/pref_play_key_guess_title"/>
+    <CheckBoxPreference
+            android:defaultValue="false"
             android:key="prefBassOctave"
             android:summary="@string/pref_bass_octave_summary"
             android:title="@string/pref_bass_octave_title"/>

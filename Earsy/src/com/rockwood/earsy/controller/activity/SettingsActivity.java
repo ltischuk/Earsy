@@ -10,6 +10,7 @@ public class SettingsActivity extends Activity
 	public static final String PREF_BASS_OCTAVE = "prefBassOctave";
 	public static final String PREF_MIDDLE_OCTAVE = "prefMiddleOctave";
 	public static final String PREF_TREBLE_OCTAVE = "prefTrebleOctave";
+	public static final String PREF_PLAY_KEY_ON_GUESS = "prefPlayKeyOnGuess";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
