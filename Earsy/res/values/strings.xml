@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Earsy</string>
-    <string name="action_settings">Quiz Settings</string>
+    <string name="button_options_text">Options</string>
     <string name="main_btnStartTraining">Quiz Me</string>
     <string name="logo_content">earsy logo</string>
     <string name="title_activity_pitch_test">Perfect Pitch Quiz</string>
@@ -17,7 +17,7 @@
     <string name="go_back_to_home">Return to Main Screen</string>
     <string name="press_play_first">You must first tap play button at the top of the screen to enable piano for guessing the note you hear.</string>
     <string name="quit_return_home">Quit And Return to Home Screen</string>
-    <string name="button_help_text">Help</string>
+    <string name="action_help_title">Help</string>
     <string name="button_back_text">Back</string>
     <string name="instructions">Welcome to Earsy! This simple perfect pitch training app trains you to recognize pitch through repetitive quizzes.
         You can customize the pitch quiz by tapping on the button (with 3 vertical dots) in the top right-hand corner of the action bar which will choose settings.  Available 

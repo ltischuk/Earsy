@@ -54,9 +54,9 @@ public class MainActivity extends Activity
 			}
 		});
 
-		final Button helpBtn = (Button) findViewById(R.id.button_help);
-		helpBtn.setTypeface(denseFont, Typeface.BOLD);
-		helpBtn.setOnTouchListener(new View.OnTouchListener()
+		final Button optionsBtn = (Button) findViewById(R.id.button_settings);
+		optionsBtn.setTypeface(denseFont, Typeface.BOLD);
+		optionsBtn.setOnTouchListener(new View.OnTouchListener()
 		{
 			@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 			@SuppressWarnings("deprecation")
@@ -64,15 +64,15 @@ public class MainActivity extends Activity
 			public boolean onTouch(final View v, final MotionEvent event)
 			{
 				if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-					helpBtn.setBackgroundDrawable(getResources().getDrawable(
-							R.drawable.blue_rndrect_pressed));
+					optionsBtn.setBackgroundDrawable(getResources()
+							.getDrawable(R.drawable.blue_rndrect_pressed));
 				} else {
-					helpBtn.setBackground(getResources().getDrawable(
+					optionsBtn.setBackground(getResources().getDrawable(
 							R.drawable.blue_rndrect_pressed));
 				}
 
 				if (event.getAction() == MotionEvent.ACTION_DOWN) {
-					showHelpDialog(v);
+					showPreferences();
 				}
 
 				return false;
@@ -81,10 +81,10 @@ public class MainActivity extends Activity
 
 	}
 
-	protected void showHelpDialog(View v)
+	protected void showHelpDialog()
 	{
 		DialogFragment newFragment = HelpDialogFragment
-				.newInstance(R.string.button_help_text);
+				.newInstance(R.string.action_help_title);
 		newFragment.show(getFragmentManager(), "help_dialog");
 
 	}
@@ -103,8 +103,8 @@ public class MainActivity extends Activity
 		// Handle item selection
 		switch (item.getItemId())
 		{
-		case R.id.action_settings:
-			showPreferences();
+		case R.id.action_help:
+			showHelpDialog();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

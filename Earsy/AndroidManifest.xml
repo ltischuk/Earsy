@@ -23,6 +23,7 @@
         </activity>
         <activity
             android:name="com.rockwood.earsy.controller.activity.SettingsActivity"
+            android:label="@string/button_options_text" 
             android:parentActivityName="com.rockwood.earsy.controller.activity.MainActivity" >            
         </activity>
         <activity

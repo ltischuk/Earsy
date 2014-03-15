@@ -36,6 +36,8 @@ public final class R {
     
          */
         public static final int activity_horizontal_margin=0x7f070000;
+        public static final int activity_main_horiz_padding=0x7f070007;
+        public static final int activity_main_top_padding=0x7f070008;
         public static final int activity_vertical_margin=0x7f070001;
         public static final int base_text_size=0x7f070006;
         public static final int button_text_size=0x7f070004;
@@ -66,11 +68,11 @@ public final class R {
     }
     public static final class id {
         public static final int act_pitch_layout=0x7f0b0004;
+        public static final int action_help=0x7f0b000e;
         public static final int action_quit_return_home=0x7f0b000f;
-        public static final int action_settings=0x7f0b000e;
         public static final int button=0x7f0b0002;
         public static final int buttonGoHome=0x7f0b000b;
-        public static final int button_help=0x7f0b0003;
+        public static final int button_settings=0x7f0b0003;
         public static final int help_fragment=0x7f0b000c;
         public static final int logo=0x7f0b0000;
         public static final int pianoView=0x7f0b0008;
@@ -144,11 +146,11 @@ public final class R {
         public static final int gb_piano=0x7f04002f;
     }
     public static final class string {
-        public static final int action_settings=0x7f080001;
+        public static final int action_help_title=0x7f080010;
         public static final int app_name=0x7f080000;
         public static final int banner_text=0x7f080006;
         public static final int button_back_text=0x7f080011;
-        public static final int button_help_text=0x7f080010;
+        public static final int button_options_text=0x7f080001;
         public static final int correct_answer=0x7f080009;
         public static final int go_back_to_home=0x7f08000d;
         public static final int instructions=0x7f080012;
