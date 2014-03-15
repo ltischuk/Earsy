@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <color name="warm_red">#ff5540</color>
+ <color name="warm_red_pressed">#f3260a</color>
+ <color name="transparent">#00000000</color>
+ <color name="date_color">#999999</color>
+ <color name="teal">#295266</color>
+ <color name="teal_pressed">#122b36</color>
+ <color name="blue">#0066cc</color>
+ <color name="gold">#e6b121</color>
+ <color name="blueback">#99FFFF</color>
+ <color name="articlecolor">#3399FF</color> 
+ <color name="article_title">#3399FF</color> 
+ <color name="cachecolor">#8ad0e8</color>
+</resources>

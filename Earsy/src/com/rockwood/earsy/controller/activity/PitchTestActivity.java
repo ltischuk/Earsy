@@ -61,7 +61,7 @@ public class PitchTestActivity extends Activity
 					player.start();
 					enablePiano = true;
 				}
-				return true;
+				return false;
 			}
 		});
 

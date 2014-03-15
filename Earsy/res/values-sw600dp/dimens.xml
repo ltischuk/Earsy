@@ -8,5 +8,6 @@
     <dimen name="header_text_size">70sp</dimen>
     <dimen name="button_text_size">45sp</dimen>
     <dimen name="base_text_size">55sp</dimen>
+    <dimen name="rounded_rect_padding">14dp</dimen>
 
 </resources>

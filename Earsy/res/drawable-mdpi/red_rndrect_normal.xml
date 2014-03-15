@@ -3,10 +3,10 @@
     android:shape="rectangle" >
 
 			<corners
-				android:bottomRightRadius="14dp"
-				android:bottomLeftRadius="14dp"
-				android:topLeftRadius="14dp"
-				android:topRightRadius="14dp"/>
+				android:bottomRightRadius="@dimen/rounded_rect_padding"
+				android:bottomLeftRadius="@dimen/rounded_rect_padding"
+				android:topLeftRadius="@dimen/rounded_rect_padding"
+				android:topRightRadius="@dimen/rounded_rect_padding"/>
 
 			<padding
 				android:bottom="2dp"
@@ -14,6 +14,6 @@
 				android:right="15dp"
 				android:top="2dp" />
 			
-			<solid android:color="#FF5540" />
+			<solid android:color="@color/warm_red" />
 	
 </shape>

@@ -25,10 +25,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewInstruction"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_playbutton"
+            android:background="@drawable/play_button_selector"
             android:layout_marginTop="@dimen/default_padding"
             android:layout_marginBottom="@dimen/default_padding"
-            android:background="@android:color/transparent"
             android:contentDescription="@string/play_btnContent" />
         
         <view
