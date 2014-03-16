@@ -36,10 +36,12 @@ public final class R {
     
          */
         public static final int activity_horizontal_margin=0x7f070000;
-        public static final int activity_main_horiz_padding=0x7f070007;
-        public static final int activity_main_top_padding=0x7f070008;
+        public static final int activity_main_bottom_padding=0x7f07000a;
+        public static final int activity_main_horiz_padding=0x7f070008;
+        public static final int activity_main_top_lrgscrn_padding=0x7f07000b;
+        public static final int activity_main_top_padding=0x7f070009;
         public static final int activity_vertical_margin=0x7f070001;
-        public static final int base_text_size=0x7f070006;
+        public static final int base_text_size=0x7f070007;
         public static final int button_text_size=0x7f070004;
         /** 
          Customize dimensions originally defined in res/values/dimens.xml (such as
@@ -47,8 +49,10 @@ public final class R {
     
          */
         public static final int default_padding=0x7f070003;
-        public static final int header_text_size=0x7f070005;
+        public static final int header_text_size=0x7f070006;
+        public static final int piano_view_note_font_size=0x7f07000c;
         public static final int rounded_rect_padding=0x7f070002;
+        public static final int smaller_button_text_size=0x7f070005;
     }
     public static final class drawable {
         public static final int banner=0x7f020000;
@@ -57,32 +61,34 @@ public final class R {
         public static final int blue_rr_normal=0x7f020003;
         public static final int blue_rr_pressed=0x7f020004;
         public static final int ic_earsylogohomescr=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
-        public static final int ic_playbutton=0x7f020007;
-        public static final int ic_playbutton_pressed=0x7f020008;
-        public static final int play_button_selector=0x7f020009;
-        public static final int red_rndrect_normal=0x7f02000a;
-        public static final int red_rndrect_pressed=0x7f02000b;
-        public static final int red_rr_normal=0x7f02000c;
-        public static final int red_rr_pressed=0x7f02000d;
+        public static final int ic_earsylogohomescr_orig=0x7f020006;
+        public static final int ic_launcher=0x7f020007;
+        public static final int ic_playbutton=0x7f020008;
+        public static final int ic_playbutton_pressed=0x7f020009;
+        public static final int play_button_selector=0x7f02000a;
+        public static final int red_rndrect_normal=0x7f02000b;
+        public static final int red_rndrect_pressed=0x7f02000c;
+        public static final int red_rr_normal=0x7f02000d;
+        public static final int red_rr_pressed=0x7f02000e;
     }
     public static final class id {
-        public static final int act_pitch_layout=0x7f0b0004;
-        public static final int action_help=0x7f0b000e;
-        public static final int action_quit_return_home=0x7f0b000f;
+        public static final int act_pitch_layout=0x7f0b0005;
+        public static final int action_help=0x7f0b000f;
+        public static final int action_quit_return_home=0x7f0b0010;
         public static final int button=0x7f0b0002;
-        public static final int buttonGoHome=0x7f0b000b;
+        public static final int buttonGoHome=0x7f0b000c;
         public static final int button_settings=0x7f0b0003;
-        public static final int help_fragment=0x7f0b000c;
+        public static final int centerPoint=0x7f0b0004;
+        public static final int help_fragment=0x7f0b000d;
         public static final int logo=0x7f0b0000;
-        public static final int pianoView=0x7f0b0008;
-        public static final int playButton=0x7f0b0007;
+        public static final int pianoView=0x7f0b0009;
+        public static final int playButton=0x7f0b0008;
         public static final int textViewBanner=0x7f0b0001;
-        public static final int textViewInstruction=0x7f0b0006;
-        public static final int textViewQNum=0x7f0b0005;
-        public static final int textViewResultHeader=0x7f0b0009;
-        public static final int textViewResults=0x7f0b000a;
-        public static final int text_view_instruc=0x7f0b000d;
+        public static final int textViewInstruction=0x7f0b0007;
+        public static final int textViewQNum=0x7f0b0006;
+        public static final int textViewResultHeader=0x7f0b000a;
+        public static final int textViewResults=0x7f0b000b;
+        public static final int text_view_instruc=0x7f0b000e;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

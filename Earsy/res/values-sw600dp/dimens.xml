@@ -11,5 +11,6 @@
     <dimen name="rounded_rect_padding">14dp</dimen>
 	<dimen name="activity_main_horiz_padding">120dp</dimen>
 	<dimen name="activity_main_top_padding">5dp</dimen>
+	<dimen name="piano_view_note_font_size">20sp</dimen>  
     
 </resources>

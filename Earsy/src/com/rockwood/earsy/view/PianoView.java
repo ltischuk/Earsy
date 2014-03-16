@@ -1,5 +1,11 @@
 package com.rockwood.earsy.view;
 
+import android.content.Context;
+import android.graphics.Canvas;
+import android.util.AttributeSet;
+import android.view.View;
+
+import com.rockwood.earsy.R;
 import com.rockwood.earsy.model.MusicNote;
 import com.rockwood.earsy.utils.Utils;
 import com.rockwood.earsy.view.graphics.BlackKeyPaint;
@@ -7,11 +13,6 @@ import com.rockwood.earsy.view.graphics.BlackKeyTextPaint;
 import com.rockwood.earsy.view.graphics.TouchedKeyPaint;
 import com.rockwood.earsy.view.graphics.WhiteKeyPaint;
 import com.rockwood.earsy.view.graphics.WhiteKeyTextPaint;
-
-import android.content.Context;
-import android.graphics.Canvas;
-import android.util.AttributeSet;
-import android.view.View;
 
 public class PianoView extends View
 {
@@ -79,8 +80,10 @@ public class PianoView extends View
 	{
 
 		MusicNote[] noteValues = MusicNote.values();
-		wkTextPaint = new WhiteKeyTextPaint();
-		bkTextPaint = new BlackKeyTextPaint();
+		int scaledSize = getResources().getDimensionPixelSize(
+				R.dimen.piano_view_note_font_size);
+		wkTextPaint = new WhiteKeyTextPaint(scaledSize);
+		bkTextPaint = new BlackKeyTextPaint(scaledSize);
 		whitePaint = new WhiteKeyPaint();
 		blackPaint = new BlackKeyPaint();
 		hitKeyPaint = new TouchedKeyPaint();
@@ -154,15 +157,16 @@ public class PianoView extends View
 
 		}
 	}
-	
+
 	public void resetView()
 	{
-		hitKey =null;
+		hitKey = null;
 		invalidate();
 	}
 
 	/**
 	 * Return the note touched from user touching piano
+	 * 
 	 * @param x
 	 * @param y
 	 * @return
