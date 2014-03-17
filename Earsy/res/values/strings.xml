@@ -19,20 +19,20 @@
     <string name="quit_return_home">Quit And Return to Home Screen</string>
     <string name="action_help_title">Help</string>
     <string name="button_back_text">Back</string>
-    <string name="instructions">Welcome to Earsy! This simple perfect pitch training app trains you to recognize pitch through repetitive quizzes.
-        You can customize the pitch quiz by tapping on the button (with 3 vertical dots) in the top right-hand corner of the action bar which will choose settings.  Available 
-        options include selection of up to 3 octave(s), 12 notes each, to be tested on in the quiz, the ability to keep guessing the pitch until correct, and the ability 
-        to have the piano key play the note you guess when pressed. Once you choose desired settings and are ready to take a quiz, click the Quiz Me button on the main screen. </string>
+    <string name="instructions">Welcome to Earsy!\r\n This simple perfect pitch training app promotes pitch recognition through repetitive quizzes.
+        You can customize the pitch quiz by tapping on the Options button on the main screen to display a list of choices.  Available options include selection of up to 3 octaves (12 notes each), 
+        the ability to keep guessing the pitch until correct, and the ability to have the piano key play the note you guess when pressed. Once you choose your desired settings and are ready to take the quiz, 
+        click the Quiz Me button on the main screen. </string>
     <string name="pref_guess">Guess Options</string>
     <string name="pref_guess_summary">Tap to change guess options for quiz</string>
     <string name="pref_play_key_guess_title">Play Note on Guess</string>
     <string name="pref_play_key_guess_summary">Check to play the note upon guess</string>
-    <string name="pref_bass_octave_title">Include bass octave</string>
-    <string name="pref_bass_octave_summary">Check to include octave below middle octave</string>
-    <string name="pref_middle_octave_title">Include middle octave</string>
-    <string name="pref_middle_octave_summary">Check to include octave starting at Middle C</string>
-    <string name="pref_treble_octave_title">Include treble octave</string>
-    <string name="pref_treble_octave_summary">Check to include octave above middle octave</string>
+    <string name="pref_bass_octave_title">Include C3-B3 octave</string>
+    <string name="pref_bass_octave_summary">Check to include small octave (below Middle C)</string>
+    <string name="pref_middle_octave_title">Include C4-B4 octave</string>
+    <string name="pref_middle_octave_summary">Check to include 2nd small octave (starting at Middle C)</string>
+    <string name="pref_treble_octave_title">Include C5-B5 octave</string>
+    <string name="pref_treble_octave_summary">Check to include 3rd small octave (above Middle C octave)</string>
     <string name="title_section3">Section 3</string>
     <string name="keybutton_c_txt">C</string>
     <string name="keybutton_csdb_txt">C# Db</string>

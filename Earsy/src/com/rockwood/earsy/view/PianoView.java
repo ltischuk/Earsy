@@ -16,21 +16,24 @@ import com.rockwood.earsy.view.graphics.WhiteKeyTextPaint;
 
 public class PianoView extends View
 {
-	WhiteKeyPaint whitePaint;
-	BlackKeyPaint blackPaint;
-	WhiteKeyTextPaint wkTextPaint;
-	BlackKeyTextPaint bkTextPaint;
-	TouchedKeyPaint hitKeyPaint;
-	int numOfWhiteKeys = 7;
-	int numOfBlackKeys = 5;
-	int blackKeySpacerVal = 2;
-	PianoKey[] whiteKeys = null;
-	PianoKey[] blackKeys = null;
-	PianoKey hitKey = null;
+	private WhiteKeyPaint whitePaint;
+	private BlackKeyPaint blackPaint;
+	private WhiteKeyTextPaint wkTextPaint;
+	private BlackKeyTextPaint bkTextPaint;
+	private TouchedKeyPaint hitKeyPaint;
+	private int numOfWhiteKeys = 7;
+	private int numOfBlackKeys = 5;
+	private int blackKeySpacerVal = 2;
+	private PianoKey[] whiteKeys = null;
+	private PianoKey[] blackKeys = null;
+	private PianoKey hitKey = null;
 
-	double viewDimensionScale = .75;
-	double blackWidthScale = 0.25;
-	double blackHeightScale = 0.5;
+	private double viewDimensionScale = .75;
+	private double blackWidthScale = 0.25;
+	private double blackHeightScale = 0.5;
+
+	private final int whiteYPoint = 4;
+	private final int blackYPoint = 2;
 
 	/**
 	 * Initialize PianoView
@@ -135,7 +138,7 @@ public class PianoView extends View
 		int blackKeyWidth = (int) ((xWhiteRight * blackWidthScale) * blackKeySpacerVal);
 
 		for (PianoKey key : whiteKeys) {
-			key.resizeKey(left, top, right, bottom);
+			key.resizeKey(left, top, right, bottom, whiteYPoint);
 			left += xWhiteRight;
 			right += xWhiteRight;
 		}
@@ -151,7 +154,7 @@ public class PianoView extends View
 				left += blackKeyWidth * blackKeySpacerVal;
 				right += blackKeyWidth * blackKeySpacerVal;
 			}
-			blackKeys[i].resizeKey(left, top, right, bottom);
+			blackKeys[i].resizeKey(left, top, right, bottom, blackYPoint);
 			left += blackKeyWidth * blackKeySpacerVal;
 			right += blackKeyWidth * blackKeySpacerVal;
 

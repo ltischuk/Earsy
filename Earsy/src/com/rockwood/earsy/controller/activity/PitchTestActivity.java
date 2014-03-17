@@ -220,7 +220,7 @@ public class PitchTestActivity extends Activity
 
 	public void doNegativeClick()
 	{
-		// Do stuff here.
+		goBackToMainActivity();
 
 	}
 
