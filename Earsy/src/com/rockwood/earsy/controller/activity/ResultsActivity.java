@@ -29,8 +29,10 @@ public class ResultsActivity extends Activity
 		// get message value from intent
 		int score = intent.getIntExtra(Utils.SCOREEXTRA, 0);
 		int notes = intent.getIntExtra(Utils.TOTALNOTESEXTRA, 0);
+		int avgGuessAttempts = intent.getIntExtra(Utils.GUESSATTEMPTSEXTRA, 0);
 		String msg = "You got a " + score + " out of " + notes + " notes: "
-				+ (int) ((score * 100.0f) / notes) + "%.";
+				+ (int) ((score * 100.0f) / notes)
+				+ "%\nAvg # of guesses per note: " + avgGuessAttempts;
 		TextView textViewResults = (TextView) findViewById(R.id.textViewResults);
 		textViewResults.setText(msg);
 		textViewResults.setTypeface(denseFont, Typeface.BOLD_ITALIC);

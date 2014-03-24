@@ -12,7 +12,7 @@ public class TouchedKeyPaint extends Paint
 		setColor(Color.BLACK);
 		setStrokeWidth(3);
 		setStyle(Paint.Style.FILL);
-		setColor(Color.DKGRAY);
+		setColor(Color.BLUE);
 		setFlags(Paint.ANTI_ALIAS_FLAG);
 		setTextAlign(Align.CENTER);
 

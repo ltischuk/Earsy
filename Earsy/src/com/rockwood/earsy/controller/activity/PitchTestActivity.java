@@ -235,6 +235,7 @@ public class PitchTestActivity extends Activity
 		Bundle extras = new Bundle();
 		extras.putInt(Utils.SCOREEXTRA, test.getScore());
 		extras.putInt(Utils.TOTALNOTESEXTRA, test.getTotalNotes());
+		extras.putInt(Utils.GUESSATTEMPTSEXTRA, test.getAverageGuessAttempts());
 		// add bundle to intent
 		intent.putExtras(extras);
 		startActivity(intent);

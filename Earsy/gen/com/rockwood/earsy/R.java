@@ -62,13 +62,14 @@ public final class R {
         public static final int blue_rr_pressed=0x7f020004;
         public static final int ic_earsylogohomescr=0x7f020005;
         public static final int ic_launcher=0x7f020006;
-        public static final int ic_playbutton=0x7f020007;
-        public static final int ic_playbutton_pressed=0x7f020008;
-        public static final int play_button_selector=0x7f020009;
-        public static final int red_rndrect_normal=0x7f02000a;
-        public static final int red_rndrect_pressed=0x7f02000b;
-        public static final int red_rr_normal=0x7f02000c;
-        public static final int red_rr_pressed=0x7f02000d;
+        public static final int ic_launcher2=0x7f020007;
+        public static final int ic_playbutton=0x7f020008;
+        public static final int ic_playbutton_pressed=0x7f020009;
+        public static final int play_button_selector=0x7f02000a;
+        public static final int red_rndrect_normal=0x7f02000b;
+        public static final int red_rndrect_pressed=0x7f02000c;
+        public static final int red_rr_normal=0x7f02000d;
+        public static final int red_rr_pressed=0x7f02000e;
     }
     public static final class id {
         public static final int act_pitch_layout=0x7f0b0005;

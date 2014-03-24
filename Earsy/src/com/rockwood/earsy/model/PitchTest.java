@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class PitchTest
 {
@@ -50,6 +51,15 @@ public class PitchTest
 	public int getNoteGuessAttempts(MusicNote note)
 	{
 		return noteGuessAttempts.get(note);
+	}
+
+	public int getAverageGuessAttempts()
+	{
+		int totalGuess = 0;
+		for (Entry<MusicNote, Integer> entry : noteGuessAttempts.entrySet()) {
+			totalGuess += entry.getValue();
+		}
+		return (int) (totalGuess / totalNotes);
 	}
 
 	/**
@@ -107,15 +117,16 @@ public class PitchTest
 	public boolean guessNote(MusicNote note)
 	{
 		int attempts = 0;
-		if (noteGuessAttempts.get(note) != null) {
-			attempts = noteGuessAttempts.get(note);
+		MusicNote currentNote = MusicNote.values()[questionList
+				.get(questionNumber)];
+		if (noteGuessAttempts.get(currentNote) != null) {
+			attempts = noteGuessAttempts.get(currentNote);
 		}
-		noteGuessAttempts.put(note, attempts + 1);
-		if (note.getDisplay().equals(
-				MusicNote.values()[questionList.get(questionNumber)]
-						.getDisplay())) {
+		noteGuessAttempts.put(currentNote, attempts + 1);
+		if (note.getDisplay().equals(currentNote.getDisplay())) {
 			if (attempts == 0) {
 				++correctGuesses;
+
 			}
 
 			return true;
